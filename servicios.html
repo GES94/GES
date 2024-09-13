@@ -12,6 +12,7 @@
             padding: 0;
             color: white;
             text-shadow: 2px 2px 4px #000;
+            padding-bottom: 60px; /* Espacio para la barra inferior */
         }
         .video-background {
             position: fixed;
@@ -31,7 +32,6 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: -1;
         }
         header {
             text-align: center;
@@ -47,7 +47,7 @@
             flex-wrap: wrap;
             justify-content: center;
             padding: 10px;
-            background-color: transparent;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
         }
         nav a {
             color: white;
@@ -98,6 +98,56 @@
             padding: 15px;
             color: white;
         }
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 0;
+            text-align: center;
+            color: white;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(100%); /* Ocultar inicialmente */
+        }
+        .bottom-nav.show {
+            transform: translateY(0); /* Mostrar cuando se desplaza hacia abajo */
+        }
+        .bottom-nav .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+        }
+        .bottom-nav .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            text-align: center;
+            flex-grow: 1;
+            max-width: 150px;
+        }
+        .bottom-nav .nav-links a:hover {
+            background-color: rgba(102, 102, 102, 0.7); /* Color semitransparente al pasar el mouse */
+        }
+        .bottom-nav img {
+            width: 24px;
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+        .bottom-nav .footer-text {
+            font-size: 12px;
+            color: #ccc;
+            margin-top: 5px;
+        }
+
         @media (max-width: 768px) {
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -194,12 +244,12 @@
     </div>
 
     <!-- Barra de navegación inferior con enlaces y footer -->
-    <div class="bottom-nav">
+    <div class="bottom-nav" id="bottom-nav">
         <div class="nav-links">
             <a href="index.html">Inicio</a>
             <a href="servicios.html">Servicios</a>
             <a href="sobre_nosotros.html">Sobre Nosotros</a>
-            <a href="Contacto.html">Contacto</a>
+            <a href="contacto.html">Contacto</a>
             <a href="https://linktr.ee/GES_Constructora">Redes</a>
             <a href="ubicacion.html">Ubicación</a>
         </div>
@@ -208,7 +258,7 @@
                 <img src="img/Instagram.png" alt="Instagram"> Instagram
             </a>
             <a href="https://www.facebook.com/GES_Constructora" target="_blank">
-                <img src="img/facebook.jpg" alt="Facebook"> Facebook
+                <img src="img/facebook.png" alt="Facebook"> Facebook
             </a>
         </div>
         <div class="footer-text">
@@ -218,24 +268,41 @@
 
     <script>
         let lastScrollTop = 0;
-        const bottomNav = document.querySelector('.bottom-nav');
+        const bottomNav = document.getElementById('bottom-nav');
 
         window.addEventListener('scroll', function() {
-            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight;
+            const clientHeight = document.documentElement.clientHeight;
 
-            if (currentScroll > lastScrollTop) {
-                // Scrolling down
+            if (scrollTop + clientHeight >= scrollHeight) {
+                // Al final de la página
                 bottomNav.classList.remove('show');
+            } else if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                bottomNav.classList.add('show');
             } else {
                 // Scrolling up
-                bottomNav.classList.add('show');
+                bottomNav.classList.remove('show');
             }
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
         });
 
-        // Initialize: hide the bottom nav on load
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 1024) {
+                bottomNav.style.display = 'none';
+            } else {
+                bottomNav.style.display = 'flex';
+            }
+        });
+
+        // Inicialmente ocultar la barra inferior en pantallas grandes
         window.addEventListener('load', function() {
-            bottomNav.classList.remove('show');
+            if (window.innerWidth >= 1024) {
+                bottomNav.style.display = 'none';
+            } else {
+                bottomNav.style.display = 'flex';
+            }
         });
     </script>
 
