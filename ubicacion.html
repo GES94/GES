@@ -6,62 +6,45 @@
     <title>Ubicación - GES</title>
     <link rel="icon" href="img/logo1.jpeg" type="image/x-icon">
     <style>
-    body {
-            font-family: Arial, sans-serif;
+        html, body {
             margin: 0;
             padding: 0;
-            background-color: #cfcfca;
-        }
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
             height: 100%;
-            z-index: -1;
-            overflow: hidden;
+            overflow: hidden; /* Evitar scroll en el fondo */
         }
-        .video-background video {
-            min-width: 100%;
-            min-height: 100%;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        header, nav, .welcome {
-            position: relative;
-            z-index: 1;
-            background-color: transparent;
-        }
-        header {
-            padding: 10px 0;
-            text-align: center;
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: #ffffff;
         }
         header img {
-            width: 100%;
-            max-width: 300px;
+            width: 150px;
             height: auto;
+            margin-top: 20px;
         }
         nav {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            background-color: transparent;
             padding: 10px;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         nav a {
             color: white;
             text-decoration: none;
             padding: 10px 20px;
-            margin: 5px;
-            background-color: rgba(0, 0, 0, 0.7);
+            margin: 0 5px;
+            background-color: #131212;
             border-radius: 5px;
             transition: background-color 0.3s ease;
-            text-align: center;
-            flex-grow: 1;
-            max-width: 150px;
         }
         nav a:hover {
-            background-color: rgba(102, 102, 102, 0.7);
+            background-color: #000000;
         }
         nav img {
             width: 24px; /* Tamaño del logo */
@@ -69,24 +52,73 @@
             margin-right: 5px;
             vertical-align: middle;
         }
-        .welcome {
-            padding: 20px;
+        #background-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%; 
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            pointer-events: none;
+        }
+        .scroll-container {
+            position: relative;
             text-align: center;
             color: white;
+            padding: 20px;
+            overflow: auto;
+            max-height: calc(100vh - 100px); /* Ajusta la altura disponible para el contenido */
+            width: 100%;
+            box-sizing: border-box; /* Asegura que el padding se tenga en cuenta en el cálculo del tamaño */
         }
         h1 {
-            margin-top: 0;
+            font-size: 3rem;
+            margin-bottom: 20px;
         }
-        p {
-            margin: 15px 0;
+        .logos {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Espaciado entre botones */
         }
-        .transparent-box {
-            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px auto;
-            max-width: 800px;
-            color: white;
+        .logos a {
+            display: block;
+        }
+        .logos img {
+            width: 100px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .logos img:hover {
+            transform: scale(1.1);
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .logos img {
+                width: 80px;
+            }
+        }
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                padding: 10px;
+                font-size: 14px;
+                margin: 5px 0;
+                display: block;
+            }
+            nav img {
+                width: 20px;
+            }
         }
         footer {
             background-color: rgba(0, 0, 0, 0.7);
@@ -95,22 +127,9 @@
             color: white;
             position: relative;
             z-index: 1;
-        }
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
-            nav a {
-                padding: 15px;
-                max-width: none;
-            }
-        }
-        @media (max-width: 480px) {
-            nav a {
-                padding: 10px;
-                font-size: 14px;
-            }
+            width: 100%;
+            bottom: 0;
+            margin-top: auto;
         }
     </style>    
 </head>
