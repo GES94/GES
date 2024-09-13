@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GES</title>
+    <link rel="icon" href="img/logo1.jpeg" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-shadow: 2px 2px 4px #000;
+            color: white;
+            padding-bottom: 60px; /* Espacio para la barra inferior */
+        }
+        header, nav, footer {
+            position: relative;
+            z-index: 2;
+        }
+        header {
+            padding: 10px 0;
+            text-align: center;
+        }
+        header img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            flex-wrap: wrap;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            text-align: center;
+            flex-grow: 1;
+            max-width: 150px;
+            font-size: 14px; /* Tamaño de fuente */
+        }
+        nav a:hover {
+            background-color: rgba(102, 102, 102, 0.7); /* Color semitransparente al pasar el mouse */
+        }
+        nav img {
+            width: 24px; /* Tamaño del logo */
+            height: auto;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .background-video video {
+            min-width: 100%;
+            min-height: 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .welcome-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 80px); /* Ajuste para que cubra el espacio debajo de la navegación */
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 2;
+            min-height: 500px; /* Nueva altura mínima */
+        }
+        .welcome {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente que engloba todo el contenido */
+            border-radius: 10px; /* Bordes redondeados */
+            max-width: 800px; /* Ancho máximo del cuadro */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Sombra para resaltar el cuadro */
+        }
+        h1 {
+            margin: 0;
+            padding: 10px 0;
+        }
+        p {
+            margin: 10px 0;
+            padding: 10px 0;
+        }
+
+        /* Barra de navegación inferior */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 0;
+            text-align: center;
+            color: white;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .bottom-nav .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+        }
+        .bottom-nav .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            text-align: center;
+            flex-grow: 1;
+            max-width: 150px;
+            font-size: 14px; /* Tamaño de fuente */
+        }
+        .bottom-nav .nav-links a:hover {
+            background-color: rgba(102, 102, 102, 0.7); /* Color semitransparente al pasar el mouse */
+        }
+        .bottom-nav img {
+            width: 24px;
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+        .bottom-nav .footer-text {
+            font-size: 12px;
+            color: #ccc;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                padding: 15px;
+                max-width: none;
+            }
+            .welcome-container {
+                height: calc(100vh - 60px);
+            }
+            h1 {
+                font-size: 24px;
+                margin-top: 0;
+            }
+            p {
+                margin: 15px 0;
+            }
+            .bottom-nav .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            .bottom-nav .nav-links a {
+                font-size: 12px;
+                padding: 10px;
+            }
+            .bottom-nav .footer-text {
+                font-size: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            nav a {
+                padding: 10px;
+                font-size: 14px;
+            }
+            .welcome-container {
+                height: calc(100vh - 50px);
+            }
+            h1 {
+                font-size: 20px;
+            }
+            .bottom-nav .nav-links a {
+                font-size: 10px;
+                padding: 8px;
+            }
+            .bottom-nav .footer-text {
+                font-size: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-video">
+        <video autoplay muted loop>
+            <source src="img/Video-Fondo.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+    </div>
+
+    <header>
+        <img src="img/logo.png" alt="Logo GES">
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="sobre_nosotros.html">Sobre Nosotros</a>
+        <a href="Contacto.html">Contacto</a>
+        <a href="https://linktr.ee/GES_Constructora">Redes</a>
+        <a href="ubicacion.html">Ubicación</a>
+        <a href="https://www.instagram.com/GES_Constructora" target="_blank">
+            <img src="img/Instagram.png" alt="Instagram"> Instagram
+        </a>
+        <a href="https://www.facebook.com/GES_Constructora" target="_blank">
+            <img src="img/facebook.jpg" alt="Facebook"> Facebook
+        </a>
+    </nav>
+
+    <div class="welcome-container">
+        <div class="welcome">
+            <h1>Bienvenido a GES</h1>
+            <p>Estamos comprometidos con la construcción de tus sueños.</p>
+            <p>8 años de haberla fundado y estamos con personal capacitado para hacer cualquier tipo de trabajo</p>
+        </div>
+    </div>
+
+    <!-- Barra de navegación inferior con enlaces y footer -->
+    <div class="bottom-nav">
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="sobre_nosotros.html">Sobre Nosotros</a>
+            <a href="Contacto.html">Contacto</a>
+            <a href="https://linktr.ee/GES_Constructora">Redes</a>
+            <a href="ubicacion.html">Ubicación</a>
+        </div>
+        <div>
+            <a href="https://www.instagram.com/GES_Constructora" target="_blank">
+                <img src="img/Instagram.png" alt="Instagram"> Instagram
+            </a>
+            <a href="https://www.facebook.com/GES_Constructora" target="_blank">
+                <img src="img/facebook.jpg" alt="Facebook"> Facebook
+            </a>
+        </div>
+        <div class="footer-text">
+            ©2024, GES Guatemala
+        </div>
+    </div>
+
+</body>
+</html>

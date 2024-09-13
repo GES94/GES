@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - GES</title>
+    <link rel="icon" href="img/logo1.jpeg" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        header {
+            text-align: center;
+            padding: 10px 0;
+        }
+        header img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+            background-color: transparent;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-align: center;
+            flex-grow: 1;
+            max-width: 150px;
+        }
+        nav a:hover {
+            background-color: rgba(102, 102, 102, 0.7); /* Color semitransparente al pasar el mouse */
+        }
+        .welcome {
+            padding: 20px;
+            text-align: center;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            justify-items: center;
+        }
+        .services-grid img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .services-grid li {
+            list-style: none;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .services-grid a {
+            text-decoration: none;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                padding: 10px;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="img/Video-Fondo.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+    </div>
+
+    <header>
+        <img src="img/logo.png" alt="Logo GES">
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="sobre_nosotros.html">Sobre Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="https://linktr.ee/GES_Constructora">Redes</a>
+        <a href="ubicacion.html">Ubicación</a>
+    </nav>
+
+    <div class="welcome">
+        <h1>Nuestros Servicios</h1>
+        <p>Ofrecemos una amplia gama de servicios de construcción que incluyen:</p>
+        <div class="services-grid">
+            <div>
+                <a href="diseno.html">
+                    <img src="img/diseño.jpg" alt="Diseño">
+                    <li>Diseño</li>
+                </a>
+            </div>
+            <div>
+                <a href="planificacion.html">
+                    <img src="img/planificacion.jpg" alt="Planificación">
+                    <li>Planificación</li>
+                </a>
+            </div>
+            <div>
+                <a href="construccion.html">
+                    <img src="img/construccion.jpg" alt="Construcción">
+                    <li>Construcción</li>
+                </a>
+            </div>
+            <div>
+                <a href="remodelacion.html">
+                    <img src="img/remodelacion.jpg" alt="Remodelación">
+                    <li>Remodelación</li>
+                </a>
+            </div>
+            <div>
+                <a href="mantenimiento.html">
+                    <img src="img/mantenimiento.jpg" alt="Mantenimiento">
+                    <li>Mantenimiento</li>
+                </a>
+            </div>
+            <div>
+                <a href="supervision.html">
+                    <img src="img/supervision.jpg" alt="Supervisión">
+                    <li>Supervisión</li>
+                </a>
+            </div>
+            <div>
+                <a href="topografia.html">
+                    <img src="img/topografia.jpg" alt="Topografía">
+                    <li>Topografía</li>
+                </a>
+            </div>
+            <div>
+                <a href="acabados.html">
+                    <img src="img/acabados.jpg" alt="Acabados Finales">
+                    <li>Acabados Finales</li>
+                </a>
+            </div>
+            <div>
+                <a href="tablayeso.html">
+                    <img src="img/tablayeso.jpg" alt="Detalles de tablayeso">
+                    <li>Detalles de tablayeso</li>
+                </a>
+            </div>
+            <div>
+                <a href="arquitectonicos.html">
+                    <img src="img/dellates.jpg" alt="Detalles arquitectónicos">
+                    <li>Detalles arquitectónicos</li>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
