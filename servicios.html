@@ -240,71 +240,9 @@
                 <img src="img/dellates.jpg" alt="Detalles arquitectónicos">
                 <li>Detalles arquitectónicos</li>
             </div>
-        </div>
-    </div>
 
-    <!-- Barra de navegación inferior con enlaces y footer -->
-    <div class="bottom-nav" id="bottom-nav">
-        <div class="nav-links">
-            <a href="index.html">Inicio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="sobre_nosotros.html">Sobre Nosotros</a>
-            <a href="contacto.html">Contacto</a>
-            <a href="https://linktr.ee/GES_Constructora">Redes</a>
-            <a href="ubicacion.html">Ubicación</a>
-        </div>
-        <div>
-            <a href="https://www.instagram.com/GES_Constructora" target="_blank">
-                <img src="img/Instagram.png" alt="Instagram"> Instagram
-            </a>
-            <a href="https://www.facebook.com/GES_Constructora" target="_blank">
-                <img src="img/facebook.png" alt="Facebook"> Facebook
-            </a>
-        </div>
-        <div class="footer-text">
-            ©2024, GES Guatemala
-        </div>
-    </div>
-
-    <script>
-        let lastScrollTop = 0;
-        const bottomNav = document.getElementById('bottom-nav');
-
-        window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight;
-            const clientHeight = document.documentElement.clientHeight;
-
-            if (scrollTop + clientHeight >= scrollHeight) {
-                // Al final de la página
-                bottomNav.classList.remove('show');
-            } else if (scrollTop > lastScrollTop) {
-                // Scrolling down
-                bottomNav.classList.add('show');
-            } else {
-                // Scrolling up
-                bottomNav.classList.remove('show');
-            }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
-        });
-
-        window.addEventListener('resize', function() {
-            if (window.innerWidth >= 1024) {
-                bottomNav.style.display = 'none';
-            } else {
-                bottomNav.style.display = 'flex';
-            }
-        });
-
-        // Inicialmente ocultar la barra inferior en pantallas grandes
-        window.addEventListener('load', function() {
-            if (window.innerWidth >= 1024) {
-                bottomNav.style.display = 'none';
-            } else {
-                bottomNav.style.display = 'flex';
-            }
-        });
-    </script>
-
+    <footer>
+        ©2024, GES Guatemala | infoges.constructora@gmail.com
+    </foote
 </body>
 </html>
