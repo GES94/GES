@@ -118,10 +118,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: transform 0.3s ease-in-out; /* Transición suave para ocultar y mostrar la barra */
+            transform: translateY(100%); /* Inicialmente oculta */
+            transition: transform 0.3s ease;
         }
-        .bottom-nav.hidden {
-            transform: translateY(100%); /* Oculta la barra desplazándola fuera de la vista */
+        .bottom-nav.show {
+            transform: translateY(0); /* Muestra la barra cuando se desplaza hacia abajo */
         }
         .bottom-nav .nav-links {
             display: flex;
@@ -146,10 +147,13 @@
             background-color: rgba(102, 102, 102, 0.7); /* Color semitransparente al pasar el mouse */
         }
         .bottom-nav img {
-            width: 24px;
-            vertical-align: middle;
-            margin: 0 5px;
-        }
+    width: 24px; /* Tamaño del logo */
+    height: auto; /* Mantener la proporción del logo */
+    margin: 0 5px;
+    vertical-align: middle;
+    border-radius: 50%; /* Asegura que los logos tengan bordes redondeados */
+}
+
         .bottom-nav .footer-text {
             font-size: 12px;
             color: #ccc;
@@ -232,7 +236,7 @@
             <img src="img/Instagram.png" alt="Instagram"> Instagram
         </a>
         <a href="https://www.facebook.com/GES_Constructora" target="_blank">
-            <img src="img/facebook.jpg" alt="Facebook"> Facebook
+            <img src="img/facebook.png" alt="Facebook"> Facebook
         </a>
     </nav>
 
@@ -271,20 +275,23 @@
         let lastScrollTop = 0;
         const bottomNav = document.querySelector('.bottom-nav');
 
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', function() {
             let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-            
+
             if (currentScroll > lastScrollTop) {
-                // Scroll hacia abajo
-                bottomNav.classList.remove('hidden');
+                // Scrolling down
+                bottomNav.classList.remove('show');
             } else {
-                // Scroll hacia arriba
-                bottomNav.classList.add('hidden');
+                // Scrolling up
+                bottomNav.classList.add('show');
             }
-            
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Para móviles o cuando el scroll es negativo
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+        });
+
+        // Initialize: hide the bottom nav on load
+        window.addEventListener('load', function() {
+            bottomNav.classList.remove('show');
         });
     </script>
-
 </body>
 </html>
