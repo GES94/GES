@@ -118,6 +118,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            transition: transform 0.3s ease-in-out; /* Transición suave para ocultar y mostrar la barra */
+        }
+        .bottom-nav.hidden {
+            transform: translateY(100%); /* Oculta la barra desplazándola fuera de la vista */
         }
         .bottom-nav .nav-links {
             display: flex;
@@ -262,6 +266,25 @@
             ©2024, GES Guatemala
         </div>
     </div>
+
+    <script>
+        let lastScrollTop = 0;
+        const bottomNav = document.querySelector('.bottom-nav');
+
+        window.addEventListener('scroll', () => {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (currentScroll > lastScrollTop) {
+                // Scroll hacia abajo
+                bottomNav.classList.remove('hidden');
+            } else {
+                // Scroll hacia arriba
+                bottomNav.classList.add('hidden');
+            }
+            
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Para móviles o cuando el scroll es negativo
+        });
+    </script>
 
 </body>
 </html>
