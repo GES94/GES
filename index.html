@@ -268,43 +268,5 @@
         </div>
     </div>
 
-    <script>
-        // JavaScript para mostrar la barra inferior solo cuando el usuario se desplaza hacia abajo
-        let lastScrollTop = 0;
-        const bottomNav = document.getElementById('bottom-nav');
-
-        window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight;
-            const clientHeight = document.documentElement.clientHeight;
-
-            if (scrollTop > lastScrollTop && scrollTop + clientHeight < scrollHeight) {
-                // Scroll hacia abajo y no está al final de la página
-                bottomNav.classList.add('show');
-            } else if (scrollTop + clientHeight >= scrollHeight) {
-                // Al final de la página
-                bottomNav.classList.remove('show');
-            } else {
-                // Scroll hacia arriba
-                bottomNav.classList.remove('show');
-            }
-            lastScrollTop = scrollTop;
-        });
-
-        // Inicialmente ocultar la barra inferior en pantallas grandes
-        if (window.innerWidth >= 1024) {
-            bottomNav.style.display = 'none';
-        }
-
-        // Ajustar la visibilidad de la barra en el redimensionamiento de la ventana
-        window.addEventListener('resize', function() {
-            if (window.innerWidth >= 1024) {
-                bottomNav.style.display = 'none';
-            } else {
-                bottomNav.style.display = 'flex';
-            }
-        });
-    </script>
-
 </body>
 </html>
