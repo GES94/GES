@@ -6,42 +6,62 @@
     <title>Ubicación - GES</title>
     <link rel="icon" href="img/logo1.jpeg" type="image/x-icon">
     <style>
-        html, body {
+    body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            height: 100%;
-            overflow-x: hidden; /* Evitar scroll horizontal */
+            background-color: #cfcfca;
         }
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            background-color: #ffffff;
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        header, nav, .welcome {
+            position: relative;
+            z-index: 1;
+            background-color: transparent;
+        }
+        header {
+            padding: 10px 0;
+            text-align: center;
         }
         header img {
-            width: 150px;
+            width: 100%;
+            max-width: 300px;
             height: auto;
-            margin-top: 20px;
         }
         nav {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            padding: 10px;        
+            padding: 10px;
         }
         nav a {
             color: white;
             text-decoration: none;
             padding: 10px 20px;
-            margin: 0 5px;
-            background-color: #131212;
+            margin: 5px;
+            background-color: rgba(0, 0, 0, 0.7);
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            text-align: center;
+            flex-grow: 1;
+            max-width: 150px;
         }
         nav a:hover {
-            background-color: #000000;
+            background-color: rgba(102, 102, 102, 0.7);
         }
         nav img {
             width: 24px; /* Tamaño del logo */
@@ -49,116 +69,50 @@
             margin-right: 5px;
             vertical-align: middle;
         }
-        #background-video {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            min-width: 100%; 
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-            pointer-events: none;
-        }
-        .scroll-container {
-            position: relative;
+        .welcome {
+            padding: 20px;
             text-align: center;
             color: white;
-            padding: 20px;
-            overflow: auto;
-            flex: 1; /* Permite que esta sección crezca y ocupe el espacio disponible */
-            width: 100%;
-            box-sizing: border-box; /* Asegura que el padding se tenga en cuenta en el cálculo del tamaño */
         }
         h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            margin-top: 0;
         }
-        .logos {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 20px; /* Espaciado entre botones */
+        p {
+            margin: 15px 0;
         }
-        .logos a {
-            display: block;
-        }
-        .logos img {
-            width: 100px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .logos img:hover {
-            transform: scale(1.1);
-        }
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            .logos img {
-                width: 80px;
-            }
-        }
-        @media (max-width: 480px) {
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
-            nav a {
-                padding: 10px;
-                font-size: 14px;
-                margin: 5px 0;
-                display: block;
-            }
-            nav img {
-                width: 20px;
-            }
-        }
-
-        /* Barra de navegación inferior */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: #131212;
-            padding: 10px 0;
-            text-align: center;
-            z-index: 10; /* Asegura que esté por encima de otros elementos */
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
+        .transparent-box {
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
             color: white;
         }
-        .bottom-nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        .bottom-nav a:hover {
-            color: #f1f1f1;
-        }
-        .bottom-nav img {
-            width: 24px;
-            vertical-align: middle;
-            margin-right: 8px;
-        }
-        .bottom-nav .footer-text {
-            font-size: 14px;
-            color: #ccc;
-        }
-footer {
+        footer {
             background-color: rgba(0, 0, 0, 0.7);
             text-align: center;
             padding: 15px;
             color: white;
             position: relative;
             z-index: 1;
-}
-    </style>
+        }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                padding: 15px;
+                max-width: none;
+            }
+        }
+        @media (max-width: 480px) {
+            nav a {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>    
 </head>
 <body>
     <header>
