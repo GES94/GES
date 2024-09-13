@@ -12,7 +12,7 @@
             padding: 0;
             color: white;
             text-shadow: 2px 2px 4px #000;
-            padding-bottom: 60px; /* Espacio para la barra inferior */
+            padding-bottom: 80px; /* Espacio para la barra inferior */
         }
         .video-background {
             position: fixed;
@@ -92,35 +92,27 @@
             text-align: center;
             margin-top: 10px;
         }
-       footer {
+        footer {
             background-color: rgba(0, 0, 0, 0.7);
             text-align: center;
             padding: 15px;
             color: white;
-            position: relative;
-            z-index: 1;
         }
         .bottom-nav {
             position: fixed;
             bottom: 0;
             width: 100%;
-            background-color:rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 10px 0;
             text-align: center;
             color: white;
             z-index: 10;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 0.3s ease-in-out;
-        }
-        .bottom-nav .nav-links {
-            display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 5px;
+            align-items: center;
         }
-        .bottom-nav .nav-links a {
+        .bottom-nav a {
             color: white;
             text-decoration: none;
             padding: 10px 20px;
@@ -132,8 +124,8 @@
             flex-grow: 1;
             max-width: 150px;
         }
-        .bottom-nav .nav-links a:hover {
-            background-color:rgba(0, 0, 0, 0.7);
+        .bottom-nav a:hover {
+            background-color: rgba(0, 0, 0, 0.7);
         }
         .bottom-nav img {
             width: 24px;
@@ -144,7 +136,7 @@
             font-size: 12px;
             color: #ccc;
             margin-top: 5px;
-            text-aling: center;
+            text-align: center;
         }
 
         @media (max-width: 768px) {
@@ -235,22 +227,28 @@
                 <img src="img/tablayeso.jpg" alt="Detalles de tablayeso">
                 <li>Detalles de tablayeso</li>
             </div>
- <nav>
-        <a href="index.html">Inicio</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="sobre_nosotros.html">Sobre Nosotros</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="https://linktr.ee/GES_Constructora">Redes</a>
-        <a href="ubicacion.html">Ubicación</a>
-        <a href="https://www.instagram.com/GES_Constructora" target="_blank">
-            <img src="img/Instagram.png" alt="Instagram"> Instagram
-        </a>
-        <a href="https://www.facebook.com/GES_Constructora" target="_blank">
-            <img src="img/facebook.png" alt="Facebook"> Facebook
-        </a>
-    </nav>
+            <div>
+                <img src="img/dellates.jpg" alt="Detalles arquitectónicos">
+                <li>Detalles arquitectónicos</li>
+            </div>
+        </div>
+    </div>
+
     <footer>
         ©2024, GES Guatemala | infoges.constructora@gmail.com
     </footer>
+
+    <div class="bottom-nav">
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="sobre_nosotros.html">Sobre Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="https://linktr.ee/GES_Constructora">Redes</a>
+            <a href="ubicacion.html">Ubicación</a>
+        </div>
+        <div class="footer-text">©2024, GES Guatemala</div>
+    </div>
+
 </body>
 </html>
