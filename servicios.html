@@ -111,6 +111,7 @@
             justify-content: center;
             flex-wrap: wrap;
             align-items: center;
+            z-index: 1000; /* Asegura que esté siempre visible */
         }
         .bottom-nav a {
             color: white;
@@ -136,6 +137,7 @@
             color: #ccc;
             margin-top: 5px;
             text-align: center;
+            width: 100%;
         }
 
         @media (max-width: 768px) {
@@ -158,8 +160,10 @@
                 padding: 10px;
                 max-width: none;
             }
-            .video-background {
-                display: none; /* Ocultar video en pantallas pequeñas */
+            .bottom-nav {
+                padding: 10px;
+                text-align: center;
+                flex-direction: column;
             }
         }
     </style>
@@ -252,11 +256,11 @@
             <a href="https://linktr.ee/GES_Constructora">Redes</a>
             <a href="ubicacion.html">Ubicación</a>
             <a href="https://www.instagram.com/GES_Constructora" target="_blank">
-            <img src="img/logoinsta.jpg" alt="Instagram"> Instagram
-        </a>
-        <a href="https://www.facebook.com/GES_Constructora" target="_blank">
-            <img src="img/facebook.png" alt="Facebook"> Facebook
-        </a>
+                <img src="img/logoinsta.jpg" alt="Instagram"> Instagram
+            </a>
+            <a href="https://www.facebook.com/GES_Constructora" target="_blank">
+                <img src="img/facebook.png" alt="Facebook"> Facebook
+            </a>
         </div>
         <div class="footer-text">©2024, GES Guatemala</div>
     </div>
