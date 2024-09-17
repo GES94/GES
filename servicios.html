@@ -82,9 +82,9 @@
             justify-items: center;
         }
         .services-grid img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
+            width: 100%;
+            height: auto;
+            max-width: 200px;
             border-radius: 5px;
         }
         .services-grid li {
@@ -142,6 +142,9 @@
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .bottom-nav {
+                flex-direction: column;
+            }
         }
         @media (max-width: 480px) {
             .services-grid {
@@ -154,6 +157,9 @@
             nav a {
                 padding: 10px;
                 max-width: none;
+            }
+            .video-background {
+                display: none; /* Ocultar video en pantallas pequeñas */
             }
         }
     </style>
